@@ -12,6 +12,7 @@
 	import { HeadingNode, QuoteNode, registerRichText } from '@lexical/rich-text';
 	import { mergeRegister } from '@lexical/utils';
 	import { createEditor } from 'lexical';
+	import {$canShowPlaceholder as canShowPlaceholder} from '@lexical/text';
 
 	import prepopulatedRichText from '$lib/prepopulatedRichText';
 	import { onMount } from 'svelte';
@@ -47,6 +48,8 @@
 		editor.registerUpdateListener(({ editorState }) => {
 			stateRef!.value = JSON.stringify(editorState.toJSON(), undefined, 2);
 		});
+
+		canShowPlaceholder(true);
 	});
 </script>
 
